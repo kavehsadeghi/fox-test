@@ -7,15 +7,6 @@ const db = require('@arangodb').db;
 const errors = require('@arangodb').errors;
 const foxxColl = db._collection('myFoxxCollection');
 const DOC_NOT_FOUND = errors.ERROR_ARANGO_DOCUMENT_NOT_FOUND.code;
-const sessions = require("./util/sessions");
-sessions.allowedResources = [
-    ...sessions.allowedResources,
-    '/echo',
-    /\/examples(\/.*)?/gi,
-    /\/users(\/.*)?/gi
-];
-
-sessions.init();
 
 
 module.context.use(router);
